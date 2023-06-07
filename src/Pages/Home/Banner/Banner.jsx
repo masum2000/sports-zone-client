@@ -33,8 +33,8 @@ const Banner = () => {
                 <SwiperSlide>
                     <img className="" src="https://i.ibb.co/Km8yfnq/kelly-sikkema-WRBy-Zhru-W6o-unsplash.jpg" />
                     <div className="absolute md:top-72 top-10 left-0 right-0 flex justify-center">
-                        <div className="md:w-4/6 w-full mx-auto md:space-y-14 space-y-8 text-center">
-                            <div className="md:text-7xl text-xl text-violet-500">
+                        <div className="md:w-4/6 w-full mx-auto md:space-y-14 space-y-8 text-center ">
+                            <div className="md:text-7xl font-semibold text-xl text-violet-500">
                             <Typewriter text="Welcome To SportsZone Academy" loop={true} speed={150} />
                             </div>
                             <Marquee>
@@ -48,8 +48,8 @@ const Banner = () => {
                 <SwiperSlide>
                     <img src="https://i.ibb.co/V01MDmx/josh-applegate-6g-b4-Ewoho0-unsplash.jpg" />
                     <div className="absolute md:top-72 top-10 left-0 right-0 flex justify-center">
-                        <div className="md:w-4/6 w-full mx-auto md:space-y-14 space-y-8 text-center">
-                            <div className="md:text-7xl text-xl text-violet-500">
+                        <div className="md:w-4/6 w-full mx-auto md:space-y-14 space-y-8 text-center ">
+                            <div className="md:text-7xl font-semibold text-xl text-violet-500">
                             <Typewriter text="Welcome To SportsZone Academy" loop={true} speed={150} />
                             </div>
                             <Marquee>
@@ -64,7 +64,7 @@ const Banner = () => {
                     <img src="https://i.ibb.co/nz8j8Z0/liz99-JOnae-Vo-Nk-TQ-unsplash.jpg" />
                     <div className="absolute md:top-72 top-10 left-0 right-0 flex justify-center">
                         <div className="md:w-4/6 w-full mx-auto md:space-y-14 space-y-8 text-center">
-                            <div className="md:text-7xl text-xl text-violet-500">
+                            <div className="md:text-7xl font-semibold text-xl text-violet-500">
                             <Typewriter text="Welcome To SportsZone Academy" loop={true} speed={150} />
                             </div>
                             <Marquee>
@@ -78,8 +78,8 @@ const Banner = () => {
                 <SwiperSlide>
                     <img src="https://i.ibb.co/s1TYYhB/nicole-green-Qgi-Aey-GUUVQ-unsplash.jpg" />
                     <div className="absolute md:top-72 top-10 left-0 right-0 flex justify-center">
-                        <div className="md:w-4/6 w-full mx-auto md:space-y-14 space-y-8 text-center">
-                            <div className="md:text-7xl text-xl text-violet-500">
+                        <div className="md:w-4/6 w-full mx-auto md:space-y-14 space-y-8 text-center ">
+                            <div className="md:text-7xl font-semibold text-xl text-violet-500">
                             <Typewriter text="Welcome To SportsZone Academy" loop={true} speed={150} />
                             </div>
                             <Marquee>

@@ -50,14 +50,14 @@ const NavBar = () => {
                                 </div>
                             </div>
                             <div className=''>
-                                <button onClick={() => auth.signOut()} className="  mr-3 text-xl text-white font-normal md:font-semibold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
+                                <button onClick={() => auth.signOut()} className="  mr-3 md:text-xl text-white font-normal md:font-semibold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
                                     Logout
                                 </button>
                             </div>
                         </>
 
                         <NavLink to="/login" className="">
-                            <button className="  text-white text-xl rounded-md font-normal md:font-semibold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
+                            <button className="  text-white md:text-xl rounded-md font-normal md:font-semibold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
 
                     </div>

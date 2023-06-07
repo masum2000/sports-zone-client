@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className='mt-16'>
             <footer className="bg-violet-500 text-white">
-                <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 flex flex-wrap justify-between">
+                <div className=" px-4 py-8 md:py-12 lg:py-16 flex flex-wrap justify-between">
                     <div className="w-full text-center md:w-1/5 mb-4 md:mb-0">
                         <img className='h-20 mx-auto' src="https://i.ibb.co/LtWBKJg/sports-Zonelogo-preview.png"></img>
                     </div>

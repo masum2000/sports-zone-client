@@ -1,0 +1,75 @@
+[
+    {
+      "image": "https://i.ibb.co/rHNdFdk/Basketball-Training.png",
+      "name": "Basketball Training",
+      "instructor": "John Smith",
+      "availableSeats": 10,
+      "price": 50
+    },
+    {
+      "image": "https://i.ibb.co/LntgWxm/Soccer.png",
+      "name": "Soccer Clinic",
+      "instructor": "Emily Johnson",
+      "availableSeats": 5,
+      "price": 30
+      
+    },
+    {
+      "image": "https://i.ibb.co/bgVhDb4/Tennis-Lessons.png",
+      "name": "Tennis Lessons",
+      "instructor": "Michael Davis",
+      "availableSeats": 8,
+      "price": 40
+      
+    },
+    {
+      "image": "https://i.ibb.co/pv6kDqM/Gym.png",
+      "name": "Gymnastics Workshop",
+      "instructor": "Sarah Thompson",
+      "availableSeats": 12,
+      "price": 60
+    },
+    {
+      "image": "https://i.ibb.co/1r8Y4mX/Swimming.png",
+      "name": "Swimming Classes",
+      "instructor": "David Anderson",
+      "availableSeats": 6,
+      "price": 35
+    },
+    {
+      "image": "https://i.ibb.co/SmZC0Qw/Volleyball.png",
+      "name": "Volleyball Camp",
+      "instructor": "Jessica Lee",
+      "availableSeats": 15,
+      "price": 70
+    },
+    {
+      "image": "https://i.ibb.co/MhS2n6x/Martial-Arts.png",
+      "name": "Martial Arts Training",
+      "instructor": "Alex Nguyen",
+      "availableSeats": 4,
+      "price": 45
+    },
+    {
+      "image": "https://i.ibb.co/ftCRHVx/Baseball-Academy.png",
+      "name": "Baseball Academy",
+      "instructor": "Ryan Wilson",
+      "availableSeats": 9,
+      "price": 55
+    },
+    {
+      "image": "https://i.ibb.co/z2DM1qX/Golf.png",
+      "name": "Golf Lessons",
+      "instructor": "Olivia Brown",
+      "availableSeats": 7,
+      "price": 50
+    },
+    {
+      "image": "https://i.ibb.co/4JPHrcq/Rugby-Skills-Program.png",
+      "name": "Rugby Skills Program",
+      "instructor": "Daniel Martinez",
+      "availableSeats": 10,
+      "price": 40
+    }
+  ]
+  
