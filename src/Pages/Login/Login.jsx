@@ -82,7 +82,7 @@ const Login = () => {
                 </div>
                 <div className="md:w-1/2">
                     <h1 className='text-3xl mb-8 md:text-start text-center'>Login to <span className='text-violet-500 font-bold italic'>SportsZone Academy</span></h1>
-                    <img src="https://i.ibb.co/ZKpqv2Y/7938322-3814348.jpg" alt="About Us Image" className="md:w-10/12 object-cover" />
+                    <img src="https://i.ibb.co/Tch2rtD/Tablet-login-cuate.png" alt="About Us Image" className="md:w-10/12 object-cover" />
                 </div>
             </div>
         </div>
