@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <div className='text-center bg-violet-500 px-10 '>
+        <div className='text-center bg-violet-500 md:px-10 '>
             <div className=''>
                 <div className="navbar ">
                     <div className="navbar-start pl-2">
@@ -20,16 +20,16 @@ const NavBar = () => {
 
                             </ul>
                         </div>
-                        <Link className="" to=""><img className='md:h-12 h-8' src="https://i.ibb.co/LtWBKJg/sports-Zonelogo-preview.png" /></Link>
+                        <Link className="" to=""><img className='md:h-20 h-8' src="https://i.ibb.co/LtWBKJg/sports-Zonelogo-preview.png" /></Link>
 
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 font-bold space-x-8">
-                            <div className="menu menu-horizontal px-1 font-bold space-x-8">
-                                <NavLink className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
-                                <NavLink to='/alltoy' className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Instructors</NavLink>
-                                <NavLink to='/mytoy' className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
-                                <NavLink to='/addtoy' className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Dashboard</NavLink>
+                        <ul className="menu menu-horizontal px-1  font-bold space-x-8">
+                            <div className="menu menu-horizontal px-1 font-semibold space-x-8">
+                                <NavLink className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
+                                <NavLink to='/alltoy' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Instructors</NavLink>
+                                <NavLink to='/mytoy' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
+                                <NavLink to='/addtoy' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Dashboard</NavLink>
                                 
                             </div> 
 
@@ -50,14 +50,14 @@ const NavBar = () => {
                                 </div>
                             </div>
                             <div className=''>
-                                <button onClick={() => auth.signOut()} className=" p-1 mr-3  text-white font-normal md:font-bold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
+                                <button onClick={() => auth.signOut()} className="  mr-3 text-xl text-white font-normal md:font-semibold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
                                     Logout
                                 </button>
                             </div>
                         </>
 
                         <NavLink to="/login" className="">
-                            <button className="  text-white rounded-md font-normal md:font-bold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
+                            <button className="  text-white text-xl rounded-md font-normal md:font-semibold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
 
                     </div>
