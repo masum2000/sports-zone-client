@@ -1,9 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
 
+    const {signIn} = useContext(AuthContext);
 
 
     const handleLogin = event => {
@@ -37,6 +40,10 @@ const Login = () => {
 
         <div className='my-16 md:my-20 md:w-10/12 w-11/12 mx-auto'>
             <div className="container mx-auto lg:flex lg:flex-row items-center md:p-16 py-8 rounded-3xl  shadow-2xl">
+            <div className="md:w-1/2">
+                    <h1 className='text-3xl mb-8 md:text-start text-center'>Login to <span className='text-violet-500 font-bold italic'>SportsZone Academy</span></h1>
+                    <img src="https://i.ibb.co/Tch2rtD/Tablet-login-cuate.png" alt="About Us Image" className="md:w-10/12 object-cover" />
+                </div>
                 <div className="md:w-1/2 w-full ">
                     <div className="card flex-shrink-0 w-full">
                         <form onSubmit={handleLogin} className="card-body">
@@ -73,17 +80,14 @@ const Login = () => {
                                     </button>
                                 </div>
                                 <div>
-                                    <p className='text-sm'>Are You new <span className='font-semibold text-violet-500'>SportsZone Academy</span> ?<Link to=""><button className="btn btn-active btn-link normal-case text-sm text-sky-700 ">Registration Here</button>
+                                    <p className='text-sm'>Are You new <span className='font-semibold text-violet-500'>SportsZone Academy</span> ?<Link to="/signUp"><button className="btn btn-active btn-link normal-case text-sm text-sky-700 ">Registration Here</button>
                                     </Link></p>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div className="md:w-1/2">
-                    <h1 className='text-3xl mb-8 md:text-start text-center'>Login to <span className='text-violet-500 font-bold italic'>SportsZone Academy</span></h1>
-                    <img src="https://i.ibb.co/Tch2rtD/Tablet-login-cuate.png" alt="About Us Image" className="md:w-10/12 object-cover" />
-                </div>
+                
             </div>
         </div>
     </div>

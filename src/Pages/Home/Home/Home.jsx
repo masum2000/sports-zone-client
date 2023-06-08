@@ -2,6 +2,8 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import { Helmet } from 'react-helmet';
 import PopularClasses from '../PopularClasses/PopularClasses';
+import Reviews from '../Reviews/Reviews';
+
 
 const Home = () => {
     return (
@@ -12,6 +14,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <PopularClasses></PopularClasses>
+            <Reviews></Reviews>
         </div>
     );
 };

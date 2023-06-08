@@ -1,0 +1,38 @@
+[
+    {
+      "_id": 1,
+      "name": "John Smith",
+      "image": "https://i.ibb.co/Np5yk2m/handsome-confident-smiling-man-with-hands-crossed-chest.jpg",
+      "details": "I had an amazing experience at SportsZone Academy. The instructors were knowledgeable and supportive. I highly recommend it!",
+      "rating": 4.5
+    },
+    {
+      "_id": 2,
+      "name": "Emily Johnson",
+      "image": "https://i.ibb.co/6BHRVZK/cheerful-curly-business-girl-wearing-glasses.jpg",
+      "details": "SportsZone Academy helped me improve my skills in soccer. The coaches were fantastic and the training sessions were intense and fun.",
+      "rating": 4.5
+    },
+    {
+      "_id": 3,
+      "name": "Michael Davis",
+      "image": "https://i.ibb.co/YBJCxkr/bohemian-man-with-his-arms-crossed.jpg",
+      "details": "I enrolled in tennis lessons at SportsZone Academy, and it was a great decision. The instructors were patient and provided valuable feedback to enhance my game.",
+      "rating": 3
+    },
+    {
+      "_id": 4,
+      "name": "Sarah Thompson",
+      "image": "https://i.ibb.co/5n5P21w/smiling-confident-businesswoman-posing-with-arms-folded.jpg",
+      "details": "The gymnastics workshop at SportsZone Academy exceeded my expectations. The facilities were top-notch, and the coaches were incredibly talented and supportive.",
+      "rating": 4.5
+    },
+    {
+      "_id": 5,
+      "name": "David Anderson",
+      "image": "https://i.ibb.co/QKdVw7j/young-bearded-man-with-striped-shirt.jpg",
+      "details": "I learned to swim at SportsZone Academy, and it was a fantastic experience. The instructors were patient and made me feel comfortable in the water.",
+      "rating": 3
+    }
+  ]
+  

@@ -2,11 +2,11 @@ import React from 'react';
 
 const ClassCard = ({course}) => {
   const {image, name, instructor,availableSeats,price} = course;
-  console.log(course);
+
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={image} alt="Shoes" /></figure>
+            <div className="card w-96 bg-base-100 shadow-xl cursor-pointer">
+                <figure><img className='' src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         Course Name: {name}
