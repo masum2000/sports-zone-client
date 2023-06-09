@@ -3,19 +3,17 @@ import { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const { register, handleSubmit,formState: { errors } } = useForm();
 
     const {signIn} = useContext(AuthContext);
-
-
-    const handleLogin = event => {
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email, password);
-        signIn(email, password)
+    
+    const onSubmit = data => {
+        console.log(data);
+        signIn(data.email, data.password)
           .then(result => {
             const user = result.user;
             console.log(user);
@@ -28,8 +26,29 @@ const Login = () => {
             });
             navigate(from, {replace: true});
           })
+    };
+
+    // const handleLogin = event => {
+    //     event.preventDefault();
+    //     const form = event.target;
+    //     const email = form.email.value;
+    //     const password = form.password.value;
+    //     console.log(email, password);
+    //     signIn(email, password)
+    //       .then(result => {
+    //         const user = result.user;
+    //         console.log(user);
+    //         Swal.fire({
+    //           position: 'top-end',
+    //           icon: 'success',
+    //           title: 'Login Successfully',
+    //           showConfirmButton: false,
+    //           timer: 1500
+    //         });
+    //         navigate(from, {replace: true});
+    //       })
           
-      }
+    //   }
 
     return (
         <div>
@@ -46,14 +65,15 @@ const Login = () => {
                 </div>
                 <div className="md:w-1/2 w-full ">
                     <div className="card flex-shrink-0 w-full">
-                        <form onSubmit={handleLogin} className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control ">
                                 <label className="label">
                                     <span className="label-text text-lg">Email</span>
                                 </label>
                                 <div className='indicator w-full flex-col'>
                                     {/* <span className="indicator-item badge bg-violet-500 border-none">Required</span> */}
-                                    <input type="email" name='email' placeholder="Your Email" className="input input-bordered" required />
+                                    <input type="email"  {...register("email", { required: true })} name='email' placeholder="Your Email" className="input input-bordered" required />
+                                    {errors.email && <span className='text-red-500'>Email is required</span>}
                                 </div>
                             </div>
                             <div className="form-control">
@@ -62,7 +82,10 @@ const Login = () => {
                                 </label>
                                 <div className='indicator w-full flex-col'>
                                     {/* <span className="indicator-item badge bg-violet-500 border-none">Required</span> */}
-                                    <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
+                                    <input type="password"  {...register("password", { required: true, minLength:6, maxLength:12 })} name='password' placeholder="Password" className="input input-bordered" required />
+                                    {errors.password?.type ==='required' && <span className='text-red-500'>Password is required</span>}
+                                {errors.password?.type ==='minLength' && <span className='text-red-500'>Password must be 6 Characters</span>}
+                                {errors.password?.type ==='maxLength' && <span className='text-red-500'>Password must be less than 12 Characters</span>}
                                 </div>
 
                                 <label className="label">
@@ -80,7 +103,7 @@ const Login = () => {
                                     </button>
                                 </div>
                                 <div>
-                                    <p className='text-sm'>Are You new <span className='font-semibold text-violet-500'>SportsZone Academy</span> ?<Link to="/signUp"><button className="btn btn-active btn-link normal-case text-sm text-sky-700 ">Registration Here</button>
+                                    <p className='text-sm'>Are You new <span className='font-semibold text-violet-500'>SportsZone Academy</span> ?<Link to="/signUp"><button className="btn btn-active btn-link normal-case text-sm text-violet-500 ">Registration Here</button>
                                     </Link></p>
                                 </div>
                             </div>

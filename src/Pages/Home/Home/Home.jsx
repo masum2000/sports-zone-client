@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import { Helmet } from 'react-helmet';
 import PopularClasses from '../PopularClasses/PopularClasses';
 import Reviews from '../Reviews/Reviews';
+import PopularInstructor from '../PopularInstructor/PopularInstructor';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <PopularClasses></PopularClasses>
+            <PopularInstructor></PopularInstructor>
             <Reviews></Reviews>
         </div>
     );

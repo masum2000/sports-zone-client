@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { getAuth } from "firebase/auth";
+import { app } from "../../../firebase/firebase.config";
 
-
+const auth = getAuth(app)
 const NavBar = () => {
+    const {user} = useContext(AuthContext)
     return (
         <div className='text-center bg-violet-500 md:px-10 '>
             <div className=''>
@@ -37,7 +42,8 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-
+                    
+                    {user ?(
                         <>
                             <div className="mr-10">
                                 <div className="group relative flex justify-center ">
@@ -50,16 +56,16 @@ const NavBar = () => {
                                 </div>
                             </div>
                             <div className=''>
-                                <button onClick={() => auth.signOut()} className="  mr-3 md:text-xl text-white font-normal md:font-semibold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
+                                <button onClick={() => auth.logOut()} className="  mr-3 md:text-xl text-white font-normal md:font-semibold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
                                     Logout
                                 </button>
                             </div>
                         </>
-
+                    ):(
                         <NavLink to="/login" className="">
                             <button className="  text-white md:text-xl rounded-md font-normal md:font-semibold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
-
+                    )}
                     </div>
                 </div>
             </div>
