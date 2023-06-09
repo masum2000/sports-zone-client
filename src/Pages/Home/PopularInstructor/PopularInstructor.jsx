@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import PopularInstructorCard from './PopularInstructorCard';
 import Typewriter from 'react-ts-typewriter';
+import useInstructors from '../../../hooks/useInstructors';
 
 const PopularInstructor = () => {
+    const [instructors] = useInstructors(); 
  
-    const [popularInstructors, setPopularInstructors] = useState([]);
+    // const [popularInstructors, setPopularInstructors] = useState([]);
 
-    useEffect (() => {
-        fetch('popularInstructor.json')
-        .then( res => res.json())
-        .then(data => setPopularInstructors(data))
-    }, []);
+    // useEffect (() => {
+    //     fetch('popularInstructor.json')
+    //     .then( res => res.json())
+    //     .then(data => setPopularInstructors(data))
+    // }, []);
 
     return (
         <div>
@@ -20,7 +22,7 @@ const PopularInstructor = () => {
 
             <div className='grid md:grid-cols-3 justify-items-center grid-cols-1 gap-10 my-16'>
                 {
-                  popularInstructors.map(popularInstructor => <PopularInstructorCard 
+                 instructors.map(popularInstructor => <PopularInstructorCard 
                     popularInstructor={popularInstructor}
                     key={popularInstructor.id}
                     ></PopularInstructorCard>)

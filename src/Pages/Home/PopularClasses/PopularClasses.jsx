@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import ClassCard from './ClassCard';
 import Typewriter from 'react-ts-typewriter';
+import useClasses from '../../../hooks/useClasses';
 
 const PopularClasses = () => {
+    const [classes] = useClasses()
 
-    const [courses, setCourses] = useState([]);
+    // const [courses, setCourses] = useState([]);
 
-    useEffect (() => {
-        fetch('classes.json')
-        .then( res => res.json())
-        .then(data => setCourses(data))
-    }, []);
+    // useEffect (() => {
+    //     fetch('classes.json')
+    //     .then( res => res.json())
+    //     .then(data => setCourses(data))
+    // }, []);
 
     return (
         <div>
@@ -20,7 +22,7 @@ const PopularClasses = () => {
             {/* <Typewriter text="Welcome To SportsZone Academy" loop={true} speed={150} /> */}
             <div className='grid md:grid-cols-3 justify-items-center grid-cols-1 gap-10 my-16'>
                 {
-                  courses.map(course => <ClassCard 
+                  classes.map(course => <ClassCard 
                     course={course}
                     key={course.id}
                     ></ClassCard>)

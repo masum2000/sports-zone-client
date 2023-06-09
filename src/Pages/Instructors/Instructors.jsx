@@ -4,14 +4,18 @@ import { useState } from 'react';
 import PopularInstructorCard from '../Home/PopularInstructor/PopularInstructorCard';
 import Typewriter from 'react-ts-typewriter';
 import InstructorsCard from './InstructorsCard';
+import useInstructors from '../../hooks/useInstructors';
 
 const Instructors = () => {
-    const [instructors, setInstructors] = useState([]);
-    useEffect (() => {
-        fetch('popularInstructor.json')
-        .then( res => res.json())
-        .then(data => setInstructors(data))
-    }, []);
+
+    const [instructors] = useInstructors(); 
+
+    // const [instructors, setInstructors] = useState([]);
+    // useEffect (() => {
+    //     fetch('popularInstructor.json')
+    //     .then( res => res.json())
+    //     .then(data => setInstructors(data))
+    // }, []);
     return (
         <div>
             <div className='md:text-6xl text-2xl text-violet-500 text-center md:mt-20 mt-10 font-semibold'>

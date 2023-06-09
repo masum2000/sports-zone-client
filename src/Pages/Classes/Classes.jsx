@@ -3,15 +3,17 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import ClassCard from '../Home/PopularClasses/ClassCard';
 import Typewriter from 'react-ts-typewriter';
+import useClasses from '../../hooks/useClasses';
 
 const Classes = () => {
-    const [classes,setClasses] = useState([]);
+    const [classes] = useClasses()
+    // const [classes,setClasses] = useState([]);
 
-    useEffect(() => {
-        fetch('classes.json')
-        .then(res => res.json())
-        .then(data => setClasses(data))
-    },[])
+    // useEffect(() => {
+    //     fetch('classes.json')
+    //     .then(res => res.json())
+    //     .then(data => setClasses(data))
+    // },[])
     return (
         <div>
             <div className='md:text-6xl text-2xl text-violet-500 text-center md:mt-20 mt-10 font-semibold'>
