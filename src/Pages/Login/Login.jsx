@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { app } from '../../firebase/firebase.config';
 
 const Login = () => {
     const { register, handleSubmit,formState: { errors } } = useForm();
 
     const {signIn} = useContext(AuthContext);
+    const navigate = useNavigate()
+
+    const auth = getAuth(app)
+    const googleProvider = new GoogleAuthProvider()
+
+    const [user, setUser] = useState(null);
     
     const onSubmit = data => {
         console.log(data);
@@ -24,7 +32,7 @@ const Login = () => {
               showConfirmButton: false,
               timer: 1500
             });
-            navigate(from, {replace: true});
+            
           })
     };
 
@@ -49,6 +57,29 @@ const Login = () => {
     //       })
           
     //   }
+
+    const handleGoogleSignIn = (event) => {
+        event.preventDefault();
+
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser)
+                navigate(from, { replace: true })
+                // alert('User logged successfully')
+                Swal.fire({
+                    title: 'Logged in Successful!',
+                    text: 'Welcome to SportsZone Academy',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            })
+            .catch(error => {
+                console.log('error', error.message);
+            })
+    }
+
 
     return (
         <div>
@@ -98,7 +129,7 @@ const Login = () => {
                             <div className='text-center  mt-6'>
                                 <p className='text-lg  divider '>Or Connect With</p>
                                 <div className='my-4'>
-                                    <button  className='px-4'>
+                                    <button onClick={handleGoogleSignIn} className='px-4'>
                                         <img className='w-10' src="https://i.ibb.co/ftwyb00/Google-G-Logo-svg.png" alt="" />
                                     </button>
                                 </div>

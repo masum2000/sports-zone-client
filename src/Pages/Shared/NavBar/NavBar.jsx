@@ -19,7 +19,7 @@ const NavBar = () => {
                             <ul tabIndex={0} className="menu menu-compact dropdown-content  font-bold space-y-3 mt-8 p-2 shadow text-white bg-violet-500 rounded-box w-52">
                                 <NavLink className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Home</NavLink>
                                 <NavLink to='/alltoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Instructors</NavLink>
-                                <NavLink to='/mytoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Classes</NavLink>
+                                <NavLink to='/classes' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Classes</NavLink>
                                 <NavLink to='/addtoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Dashboard</NavLink>
                                 
 
@@ -33,7 +33,7 @@ const NavBar = () => {
                             <div className="menu menu-horizontal px-1 font-semibold space-x-8">
                                 <NavLink className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
                                 <NavLink to='/alltoy' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Instructors</NavLink>
-                                <NavLink to='/mytoy' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
+                                <NavLink to='/classes' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
                                 <NavLink to='/addtoy' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Dashboard</NavLink>
                                 
                             </div> 
@@ -43,7 +43,7 @@ const NavBar = () => {
                     </div>
                     <div className="navbar-end">
                     
-                    {user ?(
+                   
                         <>
                             <div className="mr-10">
                                 <div className="group relative flex justify-center ">
@@ -61,11 +61,11 @@ const NavBar = () => {
                                 </button>
                             </div>
                         </>
-                    ):(
+                   
                         <NavLink to="/login" className="">
                             <button className="  text-white md:text-xl rounded-md font-normal md:font-semibold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
-                    )}
+                   
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram,  FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -11,7 +11,7 @@ const Footer = () => {
                     </div>
                     <div className="w-full text-center md:w-1/5 mb-4 md:mb-0">
                         <h4 className="text-white text-lg font-bold mb-4">About Us</h4>
-                        <p>We are passionate about bringing the joy of cars toys to enthusiasts of all ages. Our collection showcases a wide variety of meticulously crafted and highly detailed toy cars, ranging from classic models</p>
+                        <p>"SportsZone Academy: Dive into a summer of athletic exploration as students learn a variety of sports, igniting their passion for active living and fostering a lifelong love for physical activity."</p>
                     </div>
                     <div className="w-full text-center md:w-1/5 mb-4 md:mb-0">
                         <h4 className="text-white text-lg font-bold mb-4">Support</h4>
@@ -25,7 +25,7 @@ const Footer = () => {
                         <p>West Shewrapara</p>
                         <p>Mirpur Dhaka, Bangladesh</p>
                         <p>Phone: +880-1780999575</p>
-                        <p>Email: cars.toytopia@gmail.com</p>
+                        <p>Email: sportszone@gmail.com</p>
                     </div>
                     <div className="w-full  md:w-1/5">
                         <h4 className="text-white text-center text-lg font-bold mb-4">Follow Us</h4>
