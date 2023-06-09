@@ -3,10 +3,31 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { getAuth } from "firebase/auth";
 import { app } from "../../../firebase/firebase.config";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const auth = getAuth(app)
 const NavBar = () => {
-    const {user} = useContext(AuthContext)
+    const [photoURL, setPhotoURL] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    const { user, setUser } = useContext(AuthContext)
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUser(user);
+                setDisplayName(user.displayName);
+                setPhotoURL(user.photoURL);
+            } else {
+                setUser(null);
+                setDisplayName('');
+                setPhotoURL('');
+            }
+        });
+        return () => {
+            unsubscribe();
+        };
+    }, []);
     return (
         <div className='text-center bg-violet-500 md:px-10 '>
             <div className=''>
@@ -20,9 +41,7 @@ const NavBar = () => {
                                 <NavLink className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Home</NavLink>
                                 <NavLink to='/instructors' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Instructors</NavLink>
                                 <NavLink to='/classes' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Classes</NavLink>
-                                <NavLink to='/addtoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Dashboard</NavLink>
-                                
-
+                                <NavLink to='/dashboard' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Dashboard</NavLink>
                             </ul>
                         </div>
                         <Link className="" to=""><img className='md:h-20 h-8' src="https://i.ibb.co/LtWBKJg/sports-Zonelogo-preview.png" /></Link>
@@ -30,42 +49,48 @@ const NavBar = () => {
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1  font-bold space-x-8">
-                            <div className="menu menu-horizontal px-1 font-semibold space-x-8">
-                                <NavLink className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
-                                <NavLink to='/instructors' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Instructors</NavLink>
-                                <NavLink to='/classes' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
-                                <NavLink to='/addtoy' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Dashboard</NavLink>
-                                
-                            </div> 
+                            {user ?
+                                <div className="menu menu-horizontal px-1 font-semibold space-x-8">
+                                    <NavLink className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
+                                    <NavLink to='/instructors' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Instructors</NavLink>
+                                    <NavLink to='/classes' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
+                                    <NavLink to='/dashboard' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Dashboard</NavLink>
+                                </div> :
 
+                                <div className="menu menu-horizontal px-1 font-semibold space-x-8">
+                                    <NavLink className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
+                                    <NavLink to='/instructors' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Instructors</NavLink>
+                                    <NavLink to='/classes' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
+                                </div>
+                            }
 
                         </ul>
                     </div>
                     <div className="navbar-end">
-                    
-                   
+
+                    {user ?(
                         <>
                             <div className="mr-10">
                                 <div className="group relative flex justify-center ">
 
-                                    <img className=" h-10 w-10 rounded-full" src="" alt="" />
+                                    <img className=" h-10 w-10 rounded-full" src={photoURL} alt={displayName} />
 
                                     <span className="absolute top-10 scale-0 rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
-
+                                       {displayName}
                                     </span>
                                 </div>
                             </div>
                             <div className=''>
-                                <button onClick={() => auth.logOut()} className="  mr-3 md:text-xl text-white font-normal md:font-semibold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
+                                <button onClick={() => auth.signOut()} className="  mr-3 md:text-xl text-white font-normal md:font-semibold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
                                     Logout
                                 </button>
                             </div>
                         </>
-                   
+                    ) : (
                         <NavLink to="/login" className="">
                             <button className="  text-white md:text-xl rounded-md font-normal md:font-semibold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
-                   
+                    )}
                     </div>
                 </div>
             </div>

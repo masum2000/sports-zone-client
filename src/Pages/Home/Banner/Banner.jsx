@@ -40,7 +40,7 @@ const Banner = () => {
                             <Marquee>
                                 <p className="md:text-2xl text-sm text-white">"SportsZone Academy: Dive into a summer of athletic exploration as students learn a variety of sports, igniting their passion for active living and fostering a lifelong love for physical activity."</p>
                             </Marquee>
-                            <button className=" border border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
+                            <button className=" border-2 border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -55,7 +55,7 @@ const Banner = () => {
                             <Marquee>
                                 <p className="md:text-2xl text-sm text-white">"SportsZone Academy: Dive into a summer of athletic exploration as students learn a variety of sports, igniting their passion for active living and fostering a lifelong love for physical activity."</p>
                             </Marquee>
-                            <button className=" border border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
+                            <button className=" border-2 border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -70,7 +70,7 @@ const Banner = () => {
                             <Marquee>
                                 <p className="md:text-2xl text-sm text-white">"SportsZone Academy: Dive into a summer of athletic exploration as students learn a variety of sports, igniting their passion for active living and fostering a lifelong love for physical activity."</p>
                             </Marquee>
-                            <button className=" border border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
+                            <button className=" border-2 border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -85,7 +85,7 @@ const Banner = () => {
                             <Marquee>
                                 <p className="md:text-2xl text-sm text-white">"SportsZone Academy: Dive into a summer of athletic exploration as students learn a variety of sports, igniting their passion for active living and fostering a lifelong love for physical activity."</p>
                             </Marquee>
-                            <button className=" border border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
+                            <button className=" border-2 border-violet-500 hover:bg-white text-violet-500  md:p-3 p-1 rounded-md font-bold  ">More Details</button>
                         </div>
                     </div>
                 </SwiperSlide>

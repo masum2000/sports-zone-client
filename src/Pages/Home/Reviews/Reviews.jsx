@@ -32,9 +32,8 @@ const Reviews = () => {
                         <div className='flex items-center justify-center md:mx-20 mx-14 text-center '>
                             <div className="flex flex-col items-center space-y-4">
                                 <figure><img className='h-20 w-20 rounded-full' src={review.image} alt="image" /></figure>
-
-                                <p className='md:text-xl'>{review.details}</p>
                                 <h3 className='md:text-3xl text-xl font-semibold '>{review.name}</h3>
+                                <p className='md:text-xl'>{review.details}</p>
                                 <Rating
                                     style={{ maxWidth: 180 }}
                                     value={review.rating}
