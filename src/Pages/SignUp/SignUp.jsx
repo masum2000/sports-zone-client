@@ -14,7 +14,7 @@ const SignUp = () => {
     setIsLoading(true);
 
     try {
-      const result = await createUser(data.email,data.name,data.photo, data.password);
+      const result = await createUser(data.email,data.password);
       const loggedUser = result.user;
 
       // Display success alert

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
@@ -18,6 +18,8 @@ const Login = () => {
 
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
@@ -25,7 +27,7 @@ const Login = () => {
   const [user, setUser] = useState(null);
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
@@ -37,6 +39,7 @@ const Login = () => {
           timer: 1500
         });
         reset(); // Reset the form on successful login
+        navigate(from, { replace: true })
       });
   };
 
@@ -48,7 +51,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setUser(loggedUser);
-        navigate(from, { replace: true });
+        navigate(from,{ replace: true });
         Swal.fire({
           title: 'Logged in Successful!',
           text: 'Welcome to SportsZone Academy',
@@ -56,6 +59,7 @@ const Login = () => {
           confirmButtonText: 'Ok'
         });
         reset(); // Reset the form on successful login
+        navigate(from, { replace: true })
       })
       .catch((error) => {
         console.log('error', error.message);
