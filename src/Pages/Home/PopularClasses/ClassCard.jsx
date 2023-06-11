@@ -33,7 +33,7 @@ const ClassCard = ({course}) => {
                    icon: 'success',
                    title: 'Class added into the Cart',
                    showConfirmButton: false,
-                   timer: 3000
+                   timer: 2000
                  })
            }
        })

@@ -12,6 +12,7 @@ import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
 import DashBoard from "../Layout/DashBoard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -44,7 +45,7 @@ import MyCart from "../Pages/Dashboard/MyCart/MyCart";
     },
     {
      path: "dashboard",
-     element: <DashBoard></DashBoard>,
+     element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
      children: [
       {
         path: 'mycart',

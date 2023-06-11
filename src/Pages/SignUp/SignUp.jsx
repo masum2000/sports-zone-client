@@ -1,42 +1,83 @@
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const { createUser } = useContext(AuthContext);
+  const { createUser,updateUserProfile } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+ const navigate = useNavigate()
 
-  const onSubmit = async (data) => {
-    setIsLoading(true);
+  const onSubmit = data => {
 
-    try {
-      const result = await createUser(data.email,data.password);
-      const loggedUser = result.user;
+       
+    createUser(data.email, data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            
+            updateUserProfile(data.name, data.photoURL)
+                .then(() => {
+                    const saveUser = {name: data.name, email: data.email}
 
-      // Display success alert
-      Swal.fire({
-        icon: 'success',
-        title: 'Registration Successful',
-        text: `Welcome, ${loggedUser.email}!`,
-      });
+                    fetch('http://localhost:5000/users',{
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(saveUser)
+                    })
+                    .then(res => res.json())
+                    .then(data =>{
+                        if(data.insertedId){   
+                            reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'User Created Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/');
+                        }
+                    })
 
-      // Reset the form
-      reset();
-    } catch (error) {
-      // Display error alert
-      Swal.fire({
-        icon: 'error',
-        title: 'Registration Failed',
-        text: error.message,
-      });
-    }
+                    
+                })
+                .catch(error => console.log(error));
+        })
+};
 
-    setIsLoading(false);
-  };
+  // const onSubmit = async (data) => {
+  //   setIsLoading(true);
+
+  //   try {
+  //     const result = await createUser(data.email,data.password);
+  //     const loggedUser = result.user;
+
+  //     // Display success alert
+  //     Swal.fire({
+  //       icon: 'success',
+  //       title: 'Registration Successful',
+  //       text: `Welcome, ${loggedUser.email}!`,
+  //     });
+
+  //     // Reset the form
+  //     reset();
+  //   } catch (error) {
+  //     // Display error alert
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'Registration Failed',
+  //       text: error.message,
+  //     });
+  //   }
+
+  //   setIsLoading(false);
+  // };
 
   return (
     <div>
@@ -92,7 +133,7 @@ const SignUp = () => {
                   <label className="label">
                     <span className="label-text text-lg">photo Url</span>
                   </label>
-                  <input type="url" {...register("url")} name='photo' placeholder="Your Photo" className="input input-bordered" />
+                  <input type="url" {...register("photoURL")} name='photoURL' placeholder="Your Photo" className="input input-bordered" />
                 </div>
                 <div className="mt-6 form-control">
                   <button disabled={isLoading} className="border border-violet-500 hover:bg-violet-500 px-10 hover:text-white text-violet-500 font-bold text-lg py-2 rounded-lg shadow duration-300">

@@ -13,7 +13,7 @@ const MyCart = () => {
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#8B5CF6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
@@ -26,8 +26,7 @@ const MyCart = () => {
       if(data.deletedCount > 0 ){
         refetch();
         Swal.fire({
-          title: 'Success!',
-          text: 'Class Deleted Successfully.',
+          title: 'Class Deleted Successfully.',
           icon: 'success',
           confirmButtonText: 'Ok'
         })
