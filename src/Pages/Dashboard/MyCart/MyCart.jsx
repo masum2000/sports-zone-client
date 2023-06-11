@@ -1,10 +1,42 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import useCart from '../../../hooks/useCart';
+import Swal from 'sweetalert2';
 
 const MyCart = () => {
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
   const total = cart.reduce((sum, item) => item.price + sum, 0);
+
+  const handleDelete = item =>{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if(result.isConfirmed){
+    fetch(`http://localhost:5000/carts/${item._id}`,{
+          method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.deletedCount > 0 ){
+        refetch();
+        Swal.fire({
+          title: 'Success!',
+          text: 'Class Deleted Successfully.',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+      }
+    })
+  }    
+  })
+
+  }
 
   return (
     <div className='w-full'>
@@ -36,7 +68,7 @@ const MyCart = () => {
                 <td>{index + 1}</td>
                 <td>
                   <div className='avatar'>
-                    <div className=' w-20 h-12'>
+                    <div className=' w-20 h-12 rounded-md'>
                       <img src={item.image} alt='Avatar' />
                     </div>
                   </div>
@@ -51,7 +83,9 @@ const MyCart = () => {
                 <td>{item.instructor}</td>
                 <td>${item.price}</td>
                 <td>
-                  <button className='btn btn-ghost btn-xs'>icon</button>
+                  <button onClick={ ()=> handleDelete(item)} className="ml-4 w-6 ">
+                    <img src="https://i.ibb.co/b1ngMDt/delete-button.png" alt="" />
+                  </button>
                 </td>
               </tr>
             ))}
