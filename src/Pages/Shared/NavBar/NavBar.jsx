@@ -46,7 +46,7 @@ const NavBar = () => {
                                 <NavLink to='/instructors' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Instructors</NavLink>
                                 <NavLink to='/classes' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Classes</NavLink>
                                 <NavLink to='/dashboard' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Dashboard</NavLink>
-                                <NavLink to='/' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
+                                <NavLink to='/dashboard/mycart' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
                                         <button class="flex gap-2 justify-center items-center">
                                             <FaShoppingCart></FaShoppingCart>
                                             <div className="">+{cart?.length || 0}</div>
@@ -65,7 +65,7 @@ const NavBar = () => {
                                     <NavLink to='/instructors' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Instructors</NavLink>
                                     <NavLink to='/classes' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Classes</NavLink>
                                     <NavLink to='/dashboard' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Dashboard</NavLink>
-                                    <NavLink to='/' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
+                                    <NavLink to='/dashboard/mycart' className="text-white text-xl hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
                                         <button class="flex gap-2 justify-center items-center">
                                             <FaShoppingCart></FaShoppingCart>
                                             <div className="">+{cart?.length || 0}</div>

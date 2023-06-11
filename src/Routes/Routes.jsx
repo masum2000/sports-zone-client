@@ -10,8 +10,9 @@ import SignUp from "../Pages/SignUp/SignUp";
 import ClassesCard from "../Pages/Classes/ClassesCard";
 import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
-import Dashboard from "../Pages/Dashboard/Dashboard";
-import PrivateRoute from "./PrivateRoute";
+import DashBoard from "../Layout/DashBoard";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+
 
 
   export const router = createBrowserRouter([
@@ -41,13 +42,21 @@ import PrivateRoute from "./PrivateRoute";
        }
       ]
     },
+    {
+     path: "dashboard",
+     element: <DashBoard></DashBoard>,
+     children: [
+      {
+        path: 'mycart',
+        element: <MyCart></MyCart>
+      }
+     ]
+
+    },
 
 
     
-    {
-      path:'dashboard',
-      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
-    },
+    
 
 
 
