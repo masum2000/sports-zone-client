@@ -2,17 +2,64 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FaUserShield } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const AllUsers = () => {
     const {data: users =[], refetch} = useQuery(['users'],async() =>{
         const res = await fetch ('http://localhost:5000/users')
         return res.json();
     })
+    
 
-
-    const handleDelete = user => {
-
+    const handleMakeAdmin = user =>{
+        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+            method: 'PATCH',
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount){
+                refetch()
+                Swal.fire({
+                    // position: 'top-end',
+                    icon: 'success',
+                    title: `${user.name} is an Admin Now!`,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        })
     }
+
+    const handleDelete = user =>{
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#8B5CF6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if(result.isConfirmed){
+        fetch(`http://localhost:5000/users/${user._id}`,{
+              method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.deletedCount > 0 ){
+            refetch();
+            Swal.fire({
+              title: 'User Deleted Successfully.',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            })
+          }
+        })
+      }    
+      })
+    
+      }
 
     return (
         <div className='w-full'>
@@ -34,7 +81,7 @@ const AllUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
-              <th>Action</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody className=''>
@@ -57,7 +104,7 @@ const AllUsers = () => {
                 </td>
                 <td>{user.email}</td>
                 <td>{ user.role == 'admin' ? 'admin' : 
-                   <button onClick={ ()=> handleDelete(user)} className="ml-2 h-6 w-6 p-1 rounded bg-green-400 ">
+                   <button onClick={ ()=> handleMakeAdmin(user)} className="ml-2 h-6 w-6 p-1 rounded bg-green-400 ">
                    <FaUserShield></FaUserShield>
                  </button>
                     
