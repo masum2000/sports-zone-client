@@ -13,6 +13,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import DashBoard from "../Layout/DashBoard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 
 
@@ -50,6 +51,10 @@ import PrivateRoute from "./PrivateRoute";
       {
         path: 'mycart',
         element: <MyCart></MyCart>
+      },
+      {
+        path: 'allusers',
+        element: <AllUsers></AllUsers>
       }
      ]
 
