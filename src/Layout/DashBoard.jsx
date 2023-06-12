@@ -4,11 +4,13 @@ import { FaHome, FaShoppingCart, FaUser, FaUserAlt, FaUsers, FaWallet } from 're
 import NavBar from '../Pages/Shared/NavBar/NavBar';
 import Footer from '../Pages/Shared/Footer/Footer';
 import useCart from '../hooks/useCart';
+import useAdmin from '../hooks/useAdmin';
 
 const DashBoard = () => {
     const [cart] = useCart();
 
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin()
     return (
         <div>
             <NavBar></NavBar>
