@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { FaUserShield } from 'react-icons/fa';
+import { FaUser, FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
 const AllUsers = () => {
@@ -90,8 +90,8 @@ const AllUsers = () => {
                 <td>{index + 1}</td>
                 <td>
                   <div className='avatar'>
-                    <div className=' w-12 h-12 rounded-full'>
-                      <img src={user.photo} alt='Avatar' />
+                    <div className=' w-20 h-20 rounded-full'>
+                      <img src={user.photo} alt='image' />
                     </div>
                   </div>
                 </td>
@@ -104,8 +104,8 @@ const AllUsers = () => {
                 </td>
                 <td>{user.email}</td>
                 <td>{ user.role == 'admin' ? 'admin' : 
-                   <button onClick={ ()=> handleMakeAdmin(user)} className="ml-2 h-6 w-6 p-1 rounded bg-green-400 ">
-                   <FaUserShield></FaUserShield>
+                   <button onClick={ ()=> handleMakeAdmin(user)} className=" text-white ml-2 h-6 w-6 p-1 rounded bg-green-400 ">
+                   <FaUser></FaUser>
                  </button>
                     
                     }</td>
